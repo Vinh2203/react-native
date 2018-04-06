@@ -1,6 +1,15 @@
-import { AppRegistry } from 'react-native';
-import App from './App';
-
+import {AppRegistry} from 'react-native';
+import { StackNavigator } from 'react-navigation';
 import Login from './Login';
+import Home from './Home';
 
-AppRegistry.registerComponent('AwesomeProject', () => Login);
+const Navigator = StackNavigator({
+  Login: {
+    screen: Login
+  },
+  Home: {
+    screen: Home
+  }
+}, {initialRouteName: 'Login'});
+
+AppRegistry.registerComponent('AwesomeProject', () => Navigator);

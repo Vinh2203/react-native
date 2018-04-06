@@ -11,10 +11,20 @@ import {
   Text,
   View,
   Image,
+  TouchableOpacity,
   Dimensions
 } from 'react-native';
 
-export default class App extends Component<Props> {
+export default class Home extends Component {
+
+  static navigationOptions = {
+    title: 'Welcome',
+    header:null,
+  };
+    constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <View style={{flex:1}}>
@@ -27,6 +37,9 @@ export default class App extends Component<Props> {
         </View>
         <View style={{flex: 3, backgroundColor: 'steelblue'}} >
           <BlinkApp />
+          <TouchableOpacity onPress={()=>this.props.navigation.navigate('Login')} style={styles.btnLogin}>
+            <Text style={styles.txtButton}>LogOut</Text>
+          </TouchableOpacity>
         </View>
       </View>
     );
@@ -103,5 +116,18 @@ const styles = StyleSheet.create({
   },
   red: {
     color: 'red'
+  },
+  btnLogin: {
+    width: '60%',
+    marginTop: 40,
+    paddingTop: 15,
+    paddingBottom: 15,
+    backgroundColor: '#00ace6',
+    borderRadius: 5
+  },
+
+  txtButton: {
+    color: 'white',
+    textAlign: 'center'
   }
 });
